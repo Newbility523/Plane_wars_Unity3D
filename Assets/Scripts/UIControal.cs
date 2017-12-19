@@ -81,7 +81,7 @@ public class UIControal : MonoBehaviour {
 
     void DisplaySpeed()
     {
-        float temp = planeMove.speed;
+        float temp = planeMove.currentSpeed;
         if (temp <=100 )
         {
             speed.color = Color.black;

@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlaneMove : MonoBehaviour {
 
     public float maxSpeed;
-    public float normalspeed;
-    public float turnspeed;
-    public float turnAngle;
-    public float speed;
+    public float normalSpeed;
+    public float yawSpeed;
+    public float pitchAngle;
+    public float pitchSpeed;
+    public float currentSpeed;
     private Quaternion temp = Quaternion.identity;
+    private float totalAngle;
 
 	// Use this for initialization
 	void Start () {
@@ -18,30 +20,24 @@ public class PlaneMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //SpeedUp
         if (Input.GetKey(KeyCode.RightShift))
-            speed = maxSpeed;
+            currentSpeed = maxSpeed;
         else
-            speed = normalspeed;
+            currentSpeed = normalSpeed;
         
-        transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+        transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        transform.Rotate(Vector3.up, h * turnspeed, Space.World);
-        //temp *= Quaternion.AngleAxis(turnspeed * h, Vector3.up); ;
-        if (v != 0)
-        {
-            transform.rotation *= Quaternion.AngleAxis(-turnspeed * v, Vector3.right);
-        }
-
-        //transform.rotation *= Quaternion.AngleAxis(turnspeed * h, Vector3.up);
-        //transform.rotation = Quaternion.AngleAxis(-turnAngle * v, Vector3.right);
+        totalAngle += h * yawSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(-v * pitchAngle, totalAngle, 0);
     }
 
     private void OnGUI()
     {
-        GUILayout.Label("Vector3.right : " + transform.right.ToString());
-        GUILayout.Label("Vector3.up : " + transform.up.ToString());
+        // GUILayout.Label("Vector3.right : " + transform.right.ToString());
+        // GUILayout.Label("Vector3.up : " + transform.up.ToString());
     }
 }

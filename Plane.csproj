@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\PlaneFlyAnimation.cs" />
     <Compile Include="Assets\Scripts\PlaneMove.cs" />
     <Compile Include="Assets\Scripts\Stone.cs" />
+    <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\ThirdCamera.cs" />
     <Compile Include="Assets\Scripts\UIControal.cs" />
   </ItemGroup>

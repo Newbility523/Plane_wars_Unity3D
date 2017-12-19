@@ -11342,10 +11342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 140
-  normalspeed: 30
-  turnspeed: 3
-  turnAngle: 30
-  speed: 0
+  normalSpeed: 80
+  yawSpeed: 30
+  pitchAngle: 90
+  pitchSpeed: 30
+  currentSpeed: 0
 --- !u!4 &2130561345
 Transform:
   m_ObjectHideFlags: 0
