@@ -32,9 +32,5 @@ public class PlaneControl : MonoBehaviour {
                 //fire
             }
         }
-        //if(Input.GetKey(KeyCode.R))
-        //{
-        //    bullets = 30;
-        //}
 	}
 }
